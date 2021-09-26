@@ -1,0 +1,377 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-09-26T10:52:02.549Z",
+        "line": 9,
+        "name": "1 - retrieve ids and validate currency conversion",
+        "description": "",
+        "id": "coinmarketcap-api-or-backend-tasks;1---retrieve-ids-and-validate-currency-conversion;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 3443000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user requests ids using get call provided",
+            "match": {
+              "location": "stepdefs.ApiStepDefs.userRequestsIdsUsingGetCallProvided()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3169000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "ids are retrieved for given currency types \"Bitcoin\",\"Tether\",\"Ethereum\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Bitcoin\"",
+                  "offset": 43
+                },
+                {
+                  "val": "\"Tether\"",
+                  "offset": 53
+                },
+                {
+                  "val": "\"Ethereum\"",
+                  "offset": 62
+                }
+              ],
+              "location": "stepdefs.ApiStepDefs.idsAreRetrievedForGivenCurrencyTypes(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2167000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "the ids must be successfully converted to \"BOLI\" type",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"BOLI\"",
+                  "offset": 42
+                }
+              ],
+              "location": "stepdefs.ApiStepDefs.theIdsMustBeSuccessfullyConvertedToType(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-26T10:52:11.511Z",
+        "line": 17,
+        "name": "2 - Retrive and validate cryptocurrency info details for single id",
+        "description": "",
+        "id": "coinmarketcap-api-or-backend-tasks;2---retrive-and-validate-cryptocurrency-info-details-for-single-id;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 432000000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "user issues the cryptocurrency info call for \"1027\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"1027\"",
+                  "offset": 45
+                }
+              ],
+              "location": "stepdefs.ApiStepDefs.userIssuesTheCryptocurrencyInfoCallFor(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 189000000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user must verify technical documentation website and confirms \"https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png\",\"https://github.com/ethereum/wiki/wiki/White-Paper\",\"ETH\",\"2015-08-07T00:00:00.000Z\",\"mineable\" are present as expected",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png\"",
+                  "offset": 62
+                },
+                {
+                  "val": "\"https://github.com/ethereum/wiki/wiki/White-Paper\"",
+                  "offset": 125
+                },
+                {
+                  "val": "\"ETH\"",
+                  "offset": 177
+                },
+                {
+                  "val": "\"2015-08-07T00:00:00.000Z\"",
+                  "offset": 183
+                },
+                {
+                  "val": "\"mineable\"",
+                  "offset": 210
+                }
+              ],
+              "location": "stepdefs.ApiStepDefs.userMustVerifyTechnicalDocumentationWebsiteAndConfirmsArePresentAsExpected(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-26T10:52:12.144Z",
+        "line": 21,
+        "name": "3 - Retrive and validate cryptocurrency info details of first 10 currencies",
+        "description": "",
+        "id": "coinmarketcap-api-or-backend-tasks;3---retrive-and-validate-cryptocurrency-info-details-of-first-10-currencies",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 364000000,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "user issues the cryptocurrency info call for first 10 currencies",
+            "match": {
+              "arguments": [
+                {
+                  "val": "10",
+                  "offset": 51
+                }
+              ],
+              "location": "stepdefs.ApiStepDefs.userIssuesTheCryptocurrencyInfoCallForFirstCurrencies(int)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "user must fetch and verify currencies with mineable tag and their cryptocurrencies",
+            "match": {
+              "location": "stepdefs.ApiStepDefs.userMustFetchAndVerifyCurrenciesWithMineableTagAndTheirCryptocurrencies()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "CoinMarketCap API OR BACKEND Tasks",
+    "description": "",
+    "id": "coinmarketcap-api-or-backend-tasks",
+    "keyword": "Feature",
+    "uri": "file:src/test/resource/features/CoinMarketCapAPI.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "user navigates to given application",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 10656000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user navigates to CoinMarketCap URL",
+            "match": {
+              "location": "stepdefs.UiStepDefinitions.userNavigatesToCoinMarketCapURL()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-26T10:52:12.523Z",
+        "line": 6,
+        "name": "1 - Open CoinMarketCap application and verify number of rows displayed",
+        "description": "",
+        "id": "coinmarketcap-ui-tasks;1---open-coinmarketcap-application-and-verify-number-of-rows-displayed",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2000000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user selects Show rows dropdown and selects Value",
+            "match": {
+              "location": "stepdefs.UiStepDefinitions.userSelectsShowRowsDropdownAndSelectsValue()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1222000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "selected number of rows must be displayed",
+            "match": {
+              "location": "stepdefs.UiStepDefinitions.selectedNumberOfRowsMustBeDisplayed()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "user navigates to given application",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 3165000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user navigates to CoinMarketCap URL",
+            "match": {
+              "location": "stepdefs.UiStepDefinitions.userNavigatesToCoinMarketCapURL()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-26T10:52:26.441Z",
+        "line": 17,
+        "name": "2 - Open CoinMarketCap application and verify data based on filters",
+        "description": "",
+        "id": "coinmarketcap-ui-tasks;2---open-coinmarketcap-application-and-verify-data-based-on-filters;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1564000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user clicks filter button",
+            "match": {
+              "location": "stepdefs.UiStepDefinitions.userClicksFilterButton()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1983000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Filter records with \"Market Cap\" range from \"1000000000\" to \"10000000000\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Market Cap\"",
+                  "offset": 20
+                },
+                {
+                  "val": "\"1000000000\"",
+                  "offset": 44
+                },
+                {
+                  "val": "\"10000000000\"",
+                  "offset": 60
+                }
+              ],
+              "location": "stepdefs.UiStepDefinitions.filterRecordsWithRangeFromTo(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1870000000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "with filter \"Price\" range from \"101\" to \"1000\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Price\"",
+                  "offset": 12
+                },
+                {
+                  "val": "\"101\"",
+                  "offset": 31
+                },
+                {
+                  "val": "\"1000\"",
+                  "offset": 40
+                }
+              ],
+              "location": "stepdefs.UiStepDefinitions.withFilterRangeFromTo(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2767000000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "records on page must be displayed correctly as per the filters applied using \"1000000000\",\"10000000000\",\"101\",\"1000\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"1000000000\"",
+                  "offset": 77
+                },
+                {
+                  "val": "\"10000000000\"",
+                  "offset": 90
+                },
+                {
+                  "val": "\"101\"",
+                  "offset": 104
+                },
+                {
+                  "val": "\"1000\"",
+                  "offset": 110
+                }
+              ],
+              "location": "stepdefs.UiStepDefinitions.recordsOnPageMustBeDisplayedCorrectlyAsPerTheFiltersAppliedUsing(java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "CoinMarketCap UI Tasks",
+    "description": "",
+    "id": "coinmarketcap-ui-tasks",
+    "keyword": "Feature",
+    "uri": "file:src/test/resource/features/CoinMarketCapUI.feature",
+    "tags": []
+  }
+]
