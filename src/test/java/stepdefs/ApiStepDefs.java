@@ -48,6 +48,6 @@ public class ApiStepDefs {
 
     @Then("user must fetch and verify currencies with mineable tag and their cryptocurrencies")
     public void userMustFetchAndVerifyCurrenciesWithMineableTagAndTheirCryptocurrencies() {
-
+        rtest.cryptocurrencyValidation();
     }
 }

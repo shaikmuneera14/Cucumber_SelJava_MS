@@ -18,9 +18,15 @@ import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 
+/*
+Muneera Shaik
+Methods created using rest Assured to get data and validated using jsonpath and stream
+ */
+
 public class restApiTest {
+
     final Logger logger = LoggerFactory.getLogger(restApiTest.class);
-    public Boolean fl;
+    public HashSet<Boolean> flagList=new HashSet<>();
     public Response response;
     public List<String>  l1;
     List<HashMap<Object, Object>> jsonResponse;
@@ -95,23 +101,40 @@ public class restApiTest {
     }
 
     public void getFirstTenCryptoCurrencies(){
-            response = given()
-                    .contentType(ContentType.JSON)
-                    .header("X-CMC_PRO_API_KEY", "2e633c5b-63b6-437a-9b4a-8c9b37ed5e97")
-                    .param("id", "1,2,3,4,5,6,7,8,9,10")
-                    .when()
-                    .get("/cryptocurrency/info")
-                    .then()
-                    .extract().response();
-            Assertions.assertEquals(200, response.statusCode());
-            Map<Object,HashMap<Object,Object>> jResponse = response.jsonPath().getMap("data");
+        response = given()
+                .contentType(ContentType.JSON)
+                .header("X-CMC_PRO_API_KEY", "2e633c5b-63b6-437a-9b4a-8c9b37ed5e97")
+                .param("id", "1,2,3,4,5,6,7,8,9,10")
+                .when()
+                .get("/cryptocurrency/info")
+                .then()
+                .extract().response();
+        Assertions.assertEquals(200, response.statusCode());
+        Map<Object,HashMap<Object,Object>> jResponse = response.jsonPath().getMap("data");
         List<Object> newL = new ArrayList<>();
-            jResponse.forEach(
-                    (i,j)->{
-                if(j.get("tags").toString().contains("mineable"))
-                    System.out.println(j.get("name")+" tag: "+j.get("tags"));
-            }
-            );
+        jResponse.forEach(
+                (i,j)->{
+                    if(j.get("tags").toString().contains("mineable"))
+                        System.out.println(j.get("name")+" tag: "+j.get("tags"));
+                    newL.add(j.get("name"));
+                }
+        );
 
+        for (Map.Entry<Object,HashMap<Object,Object>> entry : jResponse.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue().get("tags")+ ":" + entry.getValue().get("name"));
+            if(newL.contains(entry.getValue().get("name").toString())){
+                flagList.add(true);
+            }else{
+                flagList.add(false);
+            }
+        }
+    }
+
+    public void cryptocurrencyValidation(){
+        Boolean flag = true;
+        if(flagList.contains(false)){
+            flag=false;
+        }
+        Assertions.assertTrue(flag);
     }
 }

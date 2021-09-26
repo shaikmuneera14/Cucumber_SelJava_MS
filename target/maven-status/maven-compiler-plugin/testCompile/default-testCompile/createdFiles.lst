@@ -1,8 +1,0 @@
-stepdefs\UiStepDefinitions.class
-testrunner\TestRunner.class
-pages\HomePage.class
-pages\restApiTest.class
-eleLocators\uiConstantsPg.class
-Utils\CommonUiUtils.class
-coontroller\SeleniumTst.class
-stepdefs\ApiStepDefs.class
