@@ -31,6 +31,6 @@ There two ways to execute the tests from this framework:
 
 ![image](https://user-images.githubusercontent.com/19645866/134804536-657e6d32-9024-4633-af0b-919fb89d2b77.png)
 
-Report - C:\Users\Shaik\Downloads\cucumberjavasel\target\cucumber-report-html\cucumber-html-reports
+Report - cucumberjavasel\target\cucumber-report-html\cucumber-html-reports
 ![image](https://user-images.githubusercontent.com/19645866/134804759-4d19a375-8330-497e-bf66-22fef7e74a17.png)
 
